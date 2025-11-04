@@ -72,7 +72,7 @@ jobs:
           
           # Update package.json with the correct name and publishConfig
           # Use jq to safely update JSON
-          bash -c "jq --arg name \"$PACKAGE_NAME\" --arg registry \"https://npm.pkg.github.com/\" '.name = \$name | .publishConfig.registry = \$registry' package.json > package.json.tmp && mv package.json.tmp package.json"
+          bash -c "jq --arg name \"$PACKAGE_NAME\" --arg repository.url \"https://github.com/$PACKAGE_NAME\" --arg registry \"https://npm.pkg.github.com/\" '.name = \$name | .publishConfig.registry = \$registry' package.json > package.json.tmp && mv package.json.tmp package.json"
 
           # Set a version for the package. Using commit SHA for simplicity.
           # In a real project, you might use a more robust versioning strategy.
