@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"strings"
-	"test_openapi_go/internal/api/models"
-	"test_openapi_go/internal/api/routes"
+	"test_openapi/internal/api/models"
+	"test_openapi/internal/api/routes"
 	"testing"
 
 	"github.com/gin-gonic/gin"
