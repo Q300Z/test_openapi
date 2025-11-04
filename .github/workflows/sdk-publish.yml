@@ -32,6 +32,9 @@ jobs:
       - name: Install openapi-generator-cli
         run: npm install -g @openapitools/openapi-generator-cli
 
+      - name: Install swag CLI
+        run: go install github.com/swaggo/swag/cmd/swag@latest
+
       - name: Generate SDKs
         run: make generate-sdk
 
