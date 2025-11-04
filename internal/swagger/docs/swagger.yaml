@@ -2,6 +2,7 @@ definitions:
   models.ErrorResponse:
     properties:
       code:
+        example: 400
         type: integer
       message:
         example: Bad Request
