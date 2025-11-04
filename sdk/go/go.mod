@@ -1,4 +1,4 @@
-module github.com/GIT_USER_ID/GIT_REPO_ID
+module github.com/Q300Z/test_openapi/sdk/go
 
 go 1.23
 
