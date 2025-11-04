@@ -1,0 +1,85 @@
+name: Publish SDKs
+
+on:
+  workflow_run:
+    workflows: ["Go"]
+    types:
+      - completed
+
+jobs:
+  publish-sdks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.25.3' # Use the same Go version as your project
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '25' # Use a recent Node.js version
+          registry-url: 'https://npm.pkg.github.com' # Configure for GitHub Packages
+
+      - name: Install openapi-generator-cli
+        run: npm install -g @openapitools/openapi-generator-cli
+
+      - name: Generate SDKs
+        run: make generate-sdk
+
+      - name: Configure Git for Go SDK publishing
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Publish Go SDK to GitHub Packages
+        working-directory: ./sdk/go
+        run: |
+          # Replace the module path in go.mod with the actual repository path
+          # This is crucial for GitHub Packages to correctly identify the Go module
+          REPO_OWNER="${{ github.repository_owner }}"
+          REPO_NAME="${{ github.event.repository.name }}"
+          OLD_MODULE_PATH="github.com/GIT_USER_ID/GIT_REPO_ID"
+          NEW_MODULE_PATH="github.com/${REPO_OWNER}/${REPO_NAME}/sdk/go"
+          sed -i "s|${OLD_MODULE_PATH}|${NEW_MODULE_PATH}|g" go.mod
+
+          # Commit and push the updated go.mod. GitHub Packages will pick this up.
+          git add .
+          git commit -m "chore: Update and publish Go SDK" || echo "No changes to commit for Go SDK."
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Publish TypeScript SDK to GitHub Packages
+        working-directory: ./sdk/ts
+        run: |
+          # Configure package.json for GitHub Packages
+          REPO_OWNER="${{ github.repository_owner }}"
+          REPO_NAME="${{ github.event.repository.name }}"
+          PACKAGE_NAME="@${REPO_OWNER}/${REPO_NAME}-ts-sdk"
+          
+          # Update package.json with the correct name and publishConfig
+          # Use jq to safely update JSON
+          jq --arg name "$PACKAGE_NAME" \
+             --arg registry "https://npm.pkg.github.com/" \
+             '.name = $name | .publishConfig.registry = $registry' package.json > package.json.tmp && mv package.json.tmp package.json
+
+          # Set a version for the package. Using commit SHA for simplicity.
+          # In a real project, you might use a more robust versioning strategy.
+          COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)
+          jq --arg version "0.0.0-${COMMIT_SHA_SHORT}" 
+             '.version = $version' package.json > package.json.tmp && mv package.json.tmp package.json
+
+          # Publish the package
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

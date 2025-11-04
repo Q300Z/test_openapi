@@ -1,0 +1,181 @@
+definitions:
+  models.ErrorResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        example: Bad Request
+        type: string
+    type: object
+  models.Todo:
+    properties:
+      done:
+        type: boolean
+      id:
+        type: string
+      title:
+        type: string
+    type: object
+  models.User:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+host: localhost:8081
+info:
+  contact: { }
+  description: This is a sample server for a todo list.
+  title: TodoList API
+  version: "1.0"
+paths:
+  /ping:
+    get:
+      description: Checks the health and responsiveness of the API server.
+      operationId: pingGet
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: pong
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Ping the server
+      tags:
+        - ping
+  /v1/auth/login:
+    post:
+      consumes:
+        - application/json
+      description: Authenticates a user with username and password, returning a JWT
+        token upon successful login.
+      operationId: authLogin
+      parameters:
+        - description: User login credentials
+          in: body
+          name: user
+          required: true
+          schema:
+            $ref: '#/definitions/models.User'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Successful authentication, returns JWT token
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request - Invalid input or missing fields
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "401":
+          description: Unauthorized - Invalid credentials
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error - Failed to generate token
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Login a user
+      tags:
+        - auth
+  /v1/auth/register:
+    post:
+      consumes:
+        - application/json
+      description: Registers a new user with a unique username and password. The password
+        will be hashed before storage.
+      operationId: authRegister
+      parameters:
+        - description: User registration details
+          in: body
+          name: user
+          required: true
+          schema:
+            $ref: '#/definitions/models.User'
+      produces:
+        - application/json
+      responses:
+        "201":
+          description: User created successfully
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request - Invalid input or missing fields
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error - Failed to hash password
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Register a new user
+      tags:
+        - auth
+  /v1/todos:
+    get:
+      description: Retrieves a list of all todo items.
+      operationId: todosGet
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: List of todo items
+          schema:
+            items:
+              $ref: '#/definitions/models.Todo'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+        - BearerAuth: [ ]
+      summary: Get all todos
+      tags:
+        - todos
+    post:
+      consumes:
+        - application/json
+      description: Creates a new todo item with the provided details.
+      operationId: todosCreate
+      parameters:
+        - description: Todo item details
+          in: body
+          name: todo
+          required: true
+          schema:
+            $ref: '#/definitions/models.Todo'
+      produces:
+        - application/json
+      responses:
+        "201":
+          description: Newly created todo item
+          schema:
+            $ref: '#/definitions/models.Todo'
+        "400":
+          description: Bad Request - Invalid input or missing fields
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+        - BearerAuth: [ ]
+      summary: Create a new todo
+      tags:
+        - todos
+schemes:
+  - http
+swagger: "2.0"
