@@ -66,8 +66,12 @@ jobs:
           REPO_OWNER="${{ github.repository_owner }}"
           REPO_NAME="${{ github.event.repository.name }}"
           PACKAGE_NAME="@${REPO_OWNER}/${REPO_NAME}-ts-sdk"
-
+          
+          # Configure Git user identity
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
           # Execute git_push.sh to push the generated SDK to GitHub
           /bin/sh ./git_push.sh "${REPO_OWNER}" "${REPO_NAME}-ts-sdk" "chore: Publish TypeScript SDK" "github.com"
         env:
-          GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Pass GITHUB_TOKEN to the script
+          GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
