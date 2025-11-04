@@ -1,10 +1,10 @@
 package routes
 
 import (
-	"test_openapi_go/internal/api/handlers"
-	"test_openapi_go/internal/api/middleware"
+	"test_openapi/internal/api/handlers"
+	"test_openapi/internal/api/middleware"
 
-	_ "test_openapi_go/internal/swagger/docs"
+	_ "test_openapi/internal/swagger/docs"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"

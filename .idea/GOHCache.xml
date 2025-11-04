@@ -38,7 +38,7 @@
         <entry key="file://$PROJECT_DIR$/cmd/api/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762269289922" />
+              <option name="lastModified" value="1762275048923" />
             </ScannedPath>
           </value>
         </entry>
@@ -64,7 +64,7 @@
         <entry key="file://$PROJECT_DIR$/internal/api/handlers/auth.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762264223435" />
+              <option name="lastModified" value="1762275059926" />
             </ScannedPath>
           </value>
         </entry>
@@ -78,14 +78,14 @@
         <entry key="file://$PROJECT_DIR$/internal/api/handlers/todo.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762273666861" />
+              <option name="lastModified" value="1762275085576" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/internal/api/middleware/auth.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762253581464" />
+              <option name="lastModified" value="1762275096454" />
             </ScannedPath>
           </value>
         </entry>
@@ -128,7 +128,7 @@
         <entry key="file://$PROJECT_DIR$/internal/api/routes/routes.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762273676753" />
+              <option name="lastModified" value="1762275123036" />
             </ScannedPath>
           </value>
         </entry>

@@ -2,13 +2,13 @@ package handlers
 
 import (
 	"net/http"
-	"test_openapi_go/internal/api/models"
+	"test_openapi/internal/api/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 )
 
-var todos []models.Todo = []models.Todo{}
+var todos []models.Todo
 
 // GetTodos godoc
 //

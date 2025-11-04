@@ -1,9 +1,9 @@
 package main
 
 import (
-	"test_openapi_go/internal/api/routes"
+	"test_openapi/internal/api/routes"
 
-	"test_openapi_go/pkg/config"
+	"test_openapi/pkg/config"
 
 	"github.com/gin-gonic/gin"
 )
@@ -21,8 +21,6 @@ func main() {
 	r := gin.Default()
 
 	routes.SetupRoutes(r)
-
-	//swagger.Serve(r)
 
 	r.Run(":8081")
 

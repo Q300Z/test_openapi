@@ -3,7 +3,7 @@ package middleware
 import (
 	"net/http"
 	"strings"
-	"test_openapi_go/internal/api/auth"
+	"test_openapi/internal/api/auth"
 
 	"github.com/gin-gonic/gin"
 )

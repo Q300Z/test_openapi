@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"net/http"
-	"test_openapi_go/internal/api/auth"
-	"test_openapi_go/internal/api/models"
+	"test_openapi/internal/api/auth"
+	"test_openapi/internal/api/models"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
