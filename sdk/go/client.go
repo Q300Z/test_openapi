@@ -49,11 +49,11 @@ type APIClient struct {
 
 	// API Services
 
-	AuthAPI *AuthAPIService
+	AuthAPI AuthAPI
 
-	PingAPI *PingAPIService
+	PingAPI PingAPI
 
-	TodosAPI *TodosAPIService
+	TodosAPI TodosAPI
 }
 
 type service struct {

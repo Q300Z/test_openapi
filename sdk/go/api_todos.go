@@ -20,12 +20,88 @@ import (
 )
 
 
+type TodosAPI interface {
+
+	/*
+	TodosCreate Create a new todo
+
+	Creates a new todo item with the provided details.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTodosCreateRequest
+	*/
+	TodosCreate(ctx context.Context) ApiTodosCreateRequest
+
+	// TodosCreateExecute executes the request
+	//  @return ModelsTodo
+	TodosCreateExecute(r ApiTodosCreateRequest) (*ModelsTodo, *http.Response, error)
+
+	/*
+	TodosDelete Delete a todo
+
+	Deletes a todo item by its ID.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Todo ID
+	@return ApiTodosDeleteRequest
+	*/
+	TodosDelete(ctx context.Context, id string) ApiTodosDeleteRequest
+
+	// TodosDeleteExecute executes the request
+	//  @return string
+	TodosDeleteExecute(r ApiTodosDeleteRequest) (string, *http.Response, error)
+
+	/*
+	TodosGet Get all todos
+
+	Retrieves a list of all todo items.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTodosGetRequest
+	*/
+	TodosGet(ctx context.Context) ApiTodosGetRequest
+
+	// TodosGetExecute executes the request
+	//  @return []ModelsTodo
+	TodosGetExecute(r ApiTodosGetRequest) ([]ModelsTodo, *http.Response, error)
+
+	/*
+	TodosGetByID Get a todo by ID
+
+	Retrieves a single todo item by its ID.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Todo ID
+	@return ApiTodosGetByIDRequest
+	*/
+	TodosGetByID(ctx context.Context, id string) ApiTodosGetByIDRequest
+
+	// TodosGetByIDExecute executes the request
+	//  @return ModelsTodo
+	TodosGetByIDExecute(r ApiTodosGetByIDRequest) (*ModelsTodo, *http.Response, error)
+
+	/*
+	TodosUpdate Update an existing todo
+
+	Updates an existing todo item with the provided details.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Todo ID
+	@return ApiTodosUpdateRequest
+	*/
+	TodosUpdate(ctx context.Context, id string) ApiTodosUpdateRequest
+
+	// TodosUpdateExecute executes the request
+	//  @return ModelsTodo
+	TodosUpdateExecute(r ApiTodosUpdateRequest) (*ModelsTodo, *http.Response, error)
+}
+
 // TodosAPIService TodosAPI service
 type TodosAPIService service
 
 type ApiTodosCreateRequest struct {
 	ctx context.Context
-	ApiService *TodosAPIService
+	ApiService TodosAPI
 	todo *ModelsTodo
 }
 
@@ -157,7 +233,7 @@ func (a *TodosAPIService) TodosCreateExecute(r ApiTodosCreateRequest) (*ModelsTo
 
 type ApiTodosDeleteRequest struct {
 	ctx context.Context
-	ApiService *TodosAPIService
+	ApiService TodosAPI
 	id string
 }
 
@@ -281,7 +357,7 @@ func (a *TodosAPIService) TodosDeleteExecute(r ApiTodosDeleteRequest) (string, *
 
 type ApiTodosGetRequest struct {
 	ctx context.Context
-	ApiService *TodosAPIService
+	ApiService TodosAPI
 }
 
 func (r ApiTodosGetRequest) Execute() ([]ModelsTodo, *http.Response, error) {
@@ -390,7 +466,7 @@ func (a *TodosAPIService) TodosGetExecute(r ApiTodosGetRequest) ([]ModelsTodo, *
 
 type ApiTodosGetByIDRequest struct {
 	ctx context.Context
-	ApiService *TodosAPIService
+	ApiService TodosAPI
 	id string
 }
 
@@ -514,7 +590,7 @@ func (a *TodosAPIService) TodosGetByIDExecute(r ApiTodosGetByIDRequest) (*Models
 
 type ApiTodosUpdateRequest struct {
 	ctx context.Context
-	ApiService *TodosAPIService
+	ApiService TodosAPI
 	id string
 	todo *ModelsTodo
 }

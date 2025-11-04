@@ -19,12 +19,43 @@ import (
 )
 
 
+type AuthAPI interface {
+
+	/*
+	AuthLogin Login a user
+
+	Authenticates a user with username and password, returning a JWT token upon successful login.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAuthLoginRequest
+	*/
+	AuthLogin(ctx context.Context) ApiAuthLoginRequest
+
+	// AuthLoginExecute executes the request
+	//  @return map[string]string
+	AuthLoginExecute(r ApiAuthLoginRequest) (map[string]string, *http.Response, error)
+
+	/*
+	AuthRegister Register a new user
+
+	Registers a new user with a unique username and password. The password will be hashed before storage.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAuthRegisterRequest
+	*/
+	AuthRegister(ctx context.Context) ApiAuthRegisterRequest
+
+	// AuthRegisterExecute executes the request
+	//  @return map[string]string
+	AuthRegisterExecute(r ApiAuthRegisterRequest) (map[string]string, *http.Response, error)
+}
+
 // AuthAPIService AuthAPI service
 type AuthAPIService service
 
 type ApiAuthLoginRequest struct {
 	ctx context.Context
-	ApiService *AuthAPIService
+	ApiService AuthAPI
 	user *ModelsUser
 }
 
@@ -167,7 +198,7 @@ func (a *AuthAPIService) AuthLoginExecute(r ApiAuthLoginRequest) (map[string]str
 
 type ApiAuthRegisterRequest struct {
 	ctx context.Context
-	ApiService *AuthAPIService
+	ApiService AuthAPI
 	user *ModelsUser
 }
 

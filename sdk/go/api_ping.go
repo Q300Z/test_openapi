@@ -19,12 +19,29 @@ import (
 )
 
 
+type PingAPI interface {
+
+	/*
+	PingGet Ping the server
+
+	Checks the health and responsiveness of the API server.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPingGetRequest
+	*/
+	PingGet(ctx context.Context) ApiPingGetRequest
+
+	// PingGetExecute executes the request
+	//  @return string
+	PingGetExecute(r ApiPingGetRequest) (string, *http.Response, error)
+}
+
 // PingAPIService PingAPI service
 type PingAPIService service
 
 type ApiPingGetRequest struct {
 	ctx context.Context
-	ApiService *PingAPIService
+	ApiService PingAPI
 }
 
 func (r ApiPingGetRequest) Execute() (string, *http.Response, error) {
