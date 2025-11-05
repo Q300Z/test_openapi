@@ -42,12 +42,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global push.default simple
           git config --global init.defaultBranch master
           git config --global pull.rebase false
-          git config --global pull.ff false
-          git config --global merge.ours.driver true
-          git config --global receive.denyNonFastforwards false
 
       - name: Publish Go SDK to GitHub Packages
         working-directory: ./sdk/go
@@ -58,6 +54,7 @@ jobs:
           OLD_MODULE_PATH="github.com/GIT_USER_ID/GIT_REPO_ID"
           NEW_MODULE_PATH="github.com/${REPO_OWNER}/${REPO_NAME}-go-sdk"
           sed -i "s|${OLD_MODULE_PATH}|${NEW_MODULE_PATH}|g" go.mod
+          sed -i "s|git push|git push -f|g" git_push.sh
 
           # Execute git_push.sh to push the generated SDK to GitHub
           /bin/sh ./git_push.sh "${REPO_OWNER}" "${REPO_NAME}-go-sdk" "chore: Publish Golang SDK" "github.com"
@@ -73,6 +70,7 @@ jobs:
           OLD_MODULE_PATH="github.com/GIT_USER_ID/GIT_REPO_ID"
           NEW_MODULE_PATH="github.com/${REPO_OWNER}/${REPO_NAME}-ts-sdk.git"
           sed -i "s|${OLD_MODULE_PATH}|${NEW_MODULE_PATH}|g" package.json
+          sed -i "s|git push|git push -f|g" git_push.sh
           
           # Execute git_push.sh to push the generated SDK to GitHub
           /bin/sh ./git_push.sh "${REPO_OWNER}" "${REPO_NAME}-ts-sdk" "chore: Publish TypeScript SDK" "github.com"
