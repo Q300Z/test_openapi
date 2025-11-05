@@ -43,10 +43,12 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global init.defaultBranch master
+          git config --global push.default simple
+          git config --global receive.denyNonFastforwards false
           git config --global pull.rebase false
-          git config --global pull.ff only
-          git config --global merge.ours.driver true
-          git config --global merge.ff true
+          git config --global pull.ff false
+          git config --global merge.ff false
+          git config --global merge.stat false
 
       - name: Publish Go SDK to GitHub Packages
         working-directory: ./sdk/go
