@@ -67,7 +67,7 @@ jobs:
           
           OLD_MODULE_PATH="github.com/GIT_USER_ID/GIT_REPO_ID"
           NEW_MODULE_PATH="github.com/${REPO_OWNER}/${REPO_NAME}-ts-sdk.git"
-          sed -i "s|${OLD_MODULE_PATH}|${NEW_MODULE_PATH}|g" go.mod
+          sed -i "s|${OLD_MODULE_PATH}|${NEW_MODULE_PATH}|g" package.json
           
           # Execute git_push.sh to push the generated SDK to GitHub
           /bin/sh ./git_push.sh "${REPO_OWNER}" "${REPO_NAME}-ts-sdk" "chore: Publish TypeScript SDK" "github.com"
