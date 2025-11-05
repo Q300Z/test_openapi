@@ -3,6 +3,90 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="APIClient">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/client.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="APIKey">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/configuration.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="APIResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/response.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiAuthLoginRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/api_auth.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiAuthRegisterRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/api_auth.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiPingGetRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/api_ping.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiTodosCreateRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/api_todos.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiTodosDeleteRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/api_todos.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiTodosGetByIDRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/api_todos.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiTodosGetRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/api_todos.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiTodosUpdateRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/api_todos.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="BasicAuth">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/configuration.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Claims">
           <value>
             <set>
@@ -10,10 +94,136 @@
             </set>
           </value>
         </entry>
+        <entry key="Configuration">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/configuration.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ErrorResponse">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/internal/api/models/error.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="GenericOpenAPIError">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/client.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ModelsErrorResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/model_models_error_response.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ModelsTodo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/model_models_todo.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ModelsUser">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/model_models_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableBool">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/utils.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableFloat32">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/utils.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableFloat64">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/utils.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableInt">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/utils.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableInt32">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/utils.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableInt64">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/utils.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableModelsErrorResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/model_models_error_response.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableModelsTodo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/model_models_todo.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableModelsUser">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/model_models_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableString">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/utils.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NullableTime">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/utils.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ServerConfiguration">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/configuration.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ServerVariable">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/configuration.go" />
             </set>
           </value>
         </entry>
@@ -31,6 +241,20 @@
             </set>
           </value>
         </entry>
+        <entry key="formFile">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/client.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="service">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/sdk/go/client.go" />
+            </set>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="scannedPathMapping">
@@ -39,6 +263,13 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1762275048923" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/cmd/example/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762289891080" />
             </ScannedPath>
           </value>
         </entry>
@@ -92,7 +323,7 @@
         <entry key="file://$PROJECT_DIR$/internal/api/models/error.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762261501032" />
+              <option name="lastModified" value="1762275425753" />
               <option name="schema">
                 <list>
                   <option value="ErrorResponse" />
@@ -135,7 +366,7 @@
         <entry key="file://$PROJECT_DIR$/internal/swagger/docs/docs.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762269184116" />
+              <option name="lastModified" value="1762291265170" />
             </ScannedPath>
           </value>
         </entry>
@@ -167,6 +398,148 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/api_auth.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266530" />
+              <option name="schema">
+                <list>
+                  <option value="ApiAuthLoginRequest" />
+                  <option value="ApiAuthRegisterRequest" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/api_ping.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266539" />
+              <option name="schema">
+                <list>
+                  <option value="ApiPingGetRequest" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/api_todos.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266546" />
+              <option name="schema">
+                <list>
+                  <option value="ApiTodosCreateRequest" />
+                  <option value="ApiTodosDeleteRequest" />
+                  <option value="ApiTodosGetRequest" />
+                  <option value="ApiTodosGetByIDRequest" />
+                  <option value="ApiTodosUpdateRequest" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/client.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266608" />
+              <option name="schema">
+                <list>
+                  <option value="APIClient" />
+                  <option value="service" />
+                  <option value="formFile" />
+                  <option value="GenericOpenAPIError" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/configuration.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266606" />
+              <option name="schema">
+                <list>
+                  <option value="BasicAuth" />
+                  <option value="APIKey" />
+                  <option value="ServerVariable" />
+                  <option value="ServerConfiguration" />
+                  <option value="Configuration" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/model_models_error_response.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266439" />
+              <option name="schema">
+                <list>
+                  <option value="ModelsErrorResponse" />
+                  <option value="NullableModelsErrorResponse" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/model_models_todo.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266448" />
+              <option name="schema">
+                <list>
+                  <option value="ModelsTodo" />
+                  <option value="NullableModelsTodo" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/model_models_user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266462" />
+              <option name="schema">
+                <list>
+                  <option value="ModelsUser" />
+                  <option value="NullableModelsUser" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/response.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266609" />
+              <option name="schema">
+                <list>
+                  <option value="APIResponse" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/sdk/go/utils.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1762291266618" />
+              <option name="schema">
+                <list>
+                  <option value="NullableBool" />
+                  <option value="NullableInt" />
+                  <option value="NullableInt32" />
+                  <option value="NullableInt64" />
+                  <option value="NullableFloat32" />
+                  <option value="NullableFloat64" />
+                  <option value="NullableString" />
+                  <option value="NullableTime" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/sdk_example.go">
           <value>
             <ScannedPath>
@@ -178,8 +551,40 @@
     </option>
     <option name="tableStructMapping">
       <map>
+        <entry key="api_auth_login_request" value="ApiAuthLoginRequest" />
+        <entry key="api_auth_register_request" value="ApiAuthRegisterRequest" />
+        <entry key="api_client" value="APIClient" />
+        <entry key="api_key" value="APIKey" />
+        <entry key="api_ping_get_request" value="ApiPingGetRequest" />
+        <entry key="api_response" value="APIResponse" />
+        <entry key="api_todos_create_request" value="ApiTodosCreateRequest" />
+        <entry key="api_todos_delete_request" value="ApiTodosDeleteRequest" />
+        <entry key="api_todos_get_by_id_request" value="ApiTodosGetByIDRequest" />
+        <entry key="api_todos_get_request" value="ApiTodosGetRequest" />
+        <entry key="api_todos_update_request" value="ApiTodosUpdateRequest" />
+        <entry key="basic_auth" value="BasicAuth" />
         <entry key="claims" value="Claims" />
+        <entry key="configuration" value="Configuration" />
         <entry key="error_response" value="ErrorResponse" />
+        <entry key="form_file" value="formFile" />
+        <entry key="generic_open_api_error" value="GenericOpenAPIError" />
+        <entry key="models_error_response" value="ModelsErrorResponse" />
+        <entry key="models_todo" value="ModelsTodo" />
+        <entry key="models_user" value="ModelsUser" />
+        <entry key="nullable_bool" value="NullableBool" />
+        <entry key="nullable_float32" value="NullableFloat32" />
+        <entry key="nullable_float64" value="NullableFloat64" />
+        <entry key="nullable_int" value="NullableInt" />
+        <entry key="nullable_int32" value="NullableInt32" />
+        <entry key="nullable_int64" value="NullableInt64" />
+        <entry key="nullable_models_error_response" value="NullableModelsErrorResponse" />
+        <entry key="nullable_models_todo" value="NullableModelsTodo" />
+        <entry key="nullable_models_user" value="NullableModelsUser" />
+        <entry key="nullable_string" value="NullableString" />
+        <entry key="nullable_time" value="NullableTime" />
+        <entry key="server_configuration" value="ServerConfiguration" />
+        <entry key="server_variable" value="ServerVariable" />
+        <entry key="service" value="service" />
         <entry key="todo" value="Todo" />
         <entry key="user" value="User" />
       </map>
